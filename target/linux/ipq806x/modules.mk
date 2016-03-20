@@ -32,25 +32,4 @@ endef
 $(eval $(call KernelPackage,usb-dwc3-qcom))
 
 
-define KernelPackage/mangle-bootargs-atag-dtb
-  SUBMENU:=$(OTHER_MENU)
-  TITLE:=Mangle Bootargs for dual boot
-  KCONFIG:= \
-		CONFIG_MANGLE_BOOTARGS_ATAG_DTB=y \
-		CONFIG_ARM_ATAG_DTB_COMPAT=y \
-		CONFIG_ARM_ATAG_DTB_COMPAT_CMDLINE_EXTEND=y	
-endef
 
-define KernelPackage/mangle-bootargs-atag-dtb/description
-This option enables reading bootloader supplied bootargs and
-append them to the DTB as a new key (bootloader-args), so that
-they are known but won't break the automatisms OpenWrt uses.
-It appends to the kernel command line the mumber of the mtd partition
-that has to be set as root (this is needed for the dual boot mechanism)
-using the option mangled_rootblock=XX
-Needs the following options to be set in Kernel config
-		CONFIG_ARM_ATAG_DTB_COMPAT=y 
-		CONFIG_ARM_ATAG_DTB_COMPAT_CMDLINE_EXTEND=y	
-endef
-
-$(eval $(call KernelPackage,mangle-bootargs-atag-dtb))

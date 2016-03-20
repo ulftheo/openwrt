@@ -4,7 +4,7 @@
  	return cell_size;
  }
  
-+#if defined(CONFIG_MANGLE_BOOTARGS_ATAG_DTB)
++#if defined(CONFIG_MANGLE_BOOTARGS)
 +
 +static char *append_mangled_root(char *dest, char *str, int len)
 +{
@@ -61,7 +61,7 @@
  	/* and append the ATAG_CMDLINE */
  	if (fdt_cmdline) {
 +	
-+#if defined(CONFIG_MANGLE_BOOTARGS_ATAG_DTB)
++#if defined(CONFIG_MANGLE_BOOTARGS)
 +
 +		//save original bootloader args 
 +		//and append mangled_root with root partition number to current cmdline

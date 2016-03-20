@@ -11,21 +11,10 @@ touch /etc/config/ubootenv
 . /lib/uboot-envtools.sh
 . /lib/functions.sh
 
-board=$(ipq86x_board_name)
+board=$(ipq806x_board_name)
 
 
 case "$board" in
-"guruplug-server-plus" | \
-"ib62x0" | \
-"linksys-viper" | \
-"pogo_e02" | \
-"sheevaplug" | \
-"sheevaplug-esata" )
-	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x20000" "0x20000"
-	;;
-"linksys-audi")
-	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x4000" "0x4000"
-	;;
 "ea8500")
 	ubootenv_add_uci_config "/dev/mtd10" "0x0" "0x20000" "0x20000"
 	;;

@@ -1,0 +1,14 @@
+--- a/drivers/net/wireless/ath/ath10k/core.c
++++ b/drivers/net/wireless/ath/ath10k/core.c
+@@ -1800,9 +1800,9 @@ static int ath10k_core_probe_fw(struct a
+ 
+ 	ret = ath10k_core_get_board_id_from_otp(ar);
+ 	if (ret && ret != -EOPNOTSUPP) {
+-		ath10k_err(ar, "failed to get board id from otp: %d\n",
++		ath10k_err(ar, "failed to get board id from otp: %d\n, ignored",
+ 			   ret);
+-		return ret;
++		//return ret;
+ 	}
+ 
+ 	ret = ath10k_core_fetch_board_file(ar);
